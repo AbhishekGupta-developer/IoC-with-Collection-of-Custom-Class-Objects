@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+
+    <!-- Question Bean Definition -->
+    <bean id="question" class="com.myorganisation.iocwithcollectionofobject.model.Question">
+        <constructor-arg name="id" value="1"></constructor-arg>
+        <constructor-arg name="name" value="What is Java (Question)?"></constructor-arg>
+        <constructor-arg>
+            <list>
+                <ref bean="answer1"/>
+                <ref bean="answer2"/>
+                <ref bean="answer2"/>
+                <ref bean="answer2"/>
+                <ref bean="answer3"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <!-- MCQ Bean Definition -->
+    <bean id="mcq" class="com.myorganisation.iocwithcollectionofobject.model.MCQ">
+        <constructor-arg name="id" value="1"></constructor-arg>
+        <constructor-arg name="name" value="What is Java (MCQ)?"></constructor-arg>
+        <constructor-arg>
+            <list>
+                <ref bean="answer1"/>
+                <ref bean="answer2"/>
+                <ref bean="answer3"/>
+                <ref bean="answer2"/>
+                <ref bean="answer2"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <!-- Problem Bean Definition -->
+    <bean id="problem" class="com.myorganisation.iocwithcollectionofobject.model.Problem">
+        <constructor-arg name="id" value="1" type="Integer"></constructor-arg>
+        <constructor-arg name="name" value="What is Java (Problem)?" type="String"></constructor-arg>
+        <constructor-arg>
+            <map>
+                <entry>
+                    <key>
+                        <value>1</value>
+                    </key>
+                    <ref bean="answer1"/>
+                </entry>
+                <entry>
+                    <key>
+                        <value>2</value>
+                    </key>
+                    <ref bean="answer2"/>
+                </entry>
+                <entry>
+                    <key>
+                        <value>3</value>
+                    </key>
+                    <ref bean="answer3"/>
+                </entry>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <!-- Answer Bean Definitions -->
+    <bean id="answer1" class="com.myorganisation.iocwithcollectionofobject.model.Answer">
+        <constructor-arg name="id" value="1"></constructor-arg>
+        <constructor-arg name="answer" value="Random answer 1."></constructor-arg>
+    </bean>
+
+    <bean id="answer2" class="com.myorganisation.iocwithcollectionofobject.model.Answer">
+        <constructor-arg name="id" value="2"></constructor-arg>
+        <constructor-arg name="answer" value="Random answer 2."></constructor-arg>
+    </bean>
+
+    <bean id="answer3" class="com.myorganisation.iocwithcollectionofobject.model.Answer">
+        <constructor-arg name="id" value="3"></constructor-arg>
+        <constructor-arg name="answer" value="Random answer 3."></constructor-arg>
+    </bean>
+
+</beans>
